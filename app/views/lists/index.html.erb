@@ -1,0 +1,11 @@
+
+<div class="sidemenu two">
+  <% @lists.each do |list| %>
+    <p class="sidemenu-entry">
+      <i class="fa fa-name" aria-hidden="true"></i>
+      <code>name list: </code>
+    <%= link_to list.name , list_path(list) %>
+    <%= link_to "x", lists_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn" %>
+    </p>
+  <% end %>
+</div>
