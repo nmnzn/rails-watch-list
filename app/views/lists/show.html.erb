@@ -1,1 +1,21 @@
-<h1><%= @list.name %></h1>
+<% content_for :navbar_actions do %>
+  <%= link_to "Add bookmark", new_list_bookmark_path(@list), class: "btn btn-accent btn-sm" %>
+<% end %>
+
+
+<div class="page-header">
+  <%= link_to "← Retour", lists_path, class: "btn-link-subtle" %>
+  <h1 class="page-title"><%= @list.name %></h1>
+</div>
+
+<div class="movies-grid">
+  <% if @list.bookmarks.empty? %>
+    <div class="empty-state">
+      <p>Aucun film dans cette liste pour l'instant.</p>
+    </div>
+  <% else %>
+    <% @list.bookmarks.each do |bookmark| %>
+      <%= render partial: "assets/card", locals: { bookmark: bookmark } %>
+    <% end %>
+  <% end %>
+</div>

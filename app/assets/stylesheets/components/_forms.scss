@@ -1,0 +1,58 @@
+// ── Override des inputs Bootstrap pour le thème sombre ───────────────────
+.form-control,
+.form-select {
+  background-color: $bg-elevated;
+  color: $text-primary;
+  border-color: $border-strong;
+
+  &:focus {
+    background-color: $bg-elevated;
+    color: $text-primary;
+    border-color: $accent;
+    box-shadow: 0 0 0 .2rem rgba($accent, .15);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  // Fix la couleur de fond quand le navigateur auto-remplit
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $bg-elevated inset;
+    -webkit-text-fill-color: $text-primary;
+  }
+}
+
+.form-label {
+  color: $text-secondary;
+  font-weight: 500;
+  font-size: .875rem;
+  margin-bottom: .375rem;
+}
+
+// ── Actions d'un formulaire (boutons submit/annuler) ──────────────────────
+.form-actions {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+
+// ── Messages d'erreur Simple Form ─────────────────────────────────────────
+.field_with_errors {
+  .form-control {
+    border-color: $color-danger;
+  }
+}
+
+.invalid-feedback,
+.error {
+  color: $color-danger;
+  font-size: .8rem;
+  margin-top: .25rem;
+}
+
+.hint {
+  color: $text-muted;
+  font-size: .8rem;
+  margin-top: .25rem;
+}

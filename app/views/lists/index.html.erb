@@ -1,11 +1,24 @@
+<div class="page-header">
+  <h1 class="page-title">Mes listes</h1>
+  <p class="page-subtitle">Organise les films que tu veux regarder</p>
+</div>
 
-<div class="sidemenu two">
+<div class="lists-grid">
   <% @lists.each do |list| %>
-    <p class="sidemenu-entry">
-      <i class="fa fa-name" aria-hidden="true"></i>
-      <code>name list: </code>
-    <%= link_to list.name , list_path(list) %>
-    <%= link_to "x", lists_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn" %>
-    </p>
+    <div class="list-card">
+      <%= link_to list.name, list_path(list), class: "list-card-title" %>
+      <div class="list-card-actions">
+        <%= link_to "Supprimer", list_path(list),
+            data: { turbo_method: :delete, turbo_confirm: "Supprimer cette liste ?" },
+            class: "btn btn-danger-ghost" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @lists.empty? %>
+    <div class="empty-state">
+      <p>Aucune liste pour l'instant.</p>
+      <%= link_to "Créer ta première liste", new_list_path, class: "btn btn-accent" %>
+    </div>
   <% end %>
 </div>

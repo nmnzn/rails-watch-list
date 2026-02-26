@@ -1,2 +1,17 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<div class="form-page">
+  <div class="form-card">
+    <h2 class="form-card-title">Nouveaux Bookmarks</h2>
+
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment,
+          label: "commentair",
+          placeholder: "Ex: Plotwist, Scene cult  ..." %>
+       <%= f.association :movie %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Créer le bookmark", class: "btn btn-accent" %>
+        <%= link_to "Annuler", list_path(@list), class: "btn btn-ghost" %>
+      </div>
+    <% end %>
+  </div>
+</div>

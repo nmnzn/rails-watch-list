@@ -1,4 +1,16 @@
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class="form-page">
+  <div class="form-card">
+    <h2 class="form-card-title">Nouvelle liste</h2>
+
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name,
+          label: "Nom de la liste",
+          placeholder: "Ex: Dramas, Mes favoris, À voir ce week-end..." %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Créer la liste", class: "btn btn-accent" %>
+        <%= link_to "Annuler", lists_path, class: "btn btn-ghost" %>
+      </div>
+    <% end %>
+  </div>
+</div>

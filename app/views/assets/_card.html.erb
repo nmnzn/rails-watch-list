@@ -1,0 +1,12 @@
+<div class="movie-card">
+<%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "movie-card-poster" %>
+  <div class="movie-card-body">
+    <h3 class="movie-card-title"><%= bookmark.movie.title %></h3>
+    <p class="movie-card-rating"><%= bookmark.movie.rating.truncate(1) %></p>
+    <p class="movie-card-overview"><%= truncate(bookmark.movie.overview, length: 70) %></p>
+    <p class="movie-card-comment">| <%= bookmark.comment %> |</p>
+    <%= link_to "Supprimer", bookmark_path(bookmark),
+            data: { turbo_method: :delete, turbo_confirm: "Supprimer cette liste ?" },
+            class: "btn btn-danger-ghost" %>
+  </div>
+</div>
