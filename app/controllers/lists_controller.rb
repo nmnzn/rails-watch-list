@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :destroy]
+  before_action :set_list, only: [ :show, :destroy ]
   def index
     @lists = List.all
   end
@@ -23,7 +23,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
