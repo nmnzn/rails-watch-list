@@ -7,6 +7,8 @@
           label: "Nom de la liste",
           placeholder: "Ex: Dramas, Mes favoris, À voir ce week-end..." %>
 
+      <%= f.input :photo, as: :file, input_html: { class: "form-control" } %>
+
       <div class="form-actions">
         <%= f.button :submit, "Créer la liste", class: "btn btn-accent" %>
         <%= link_to "Annuler", root_path, class: "btn btn-ghost" %>

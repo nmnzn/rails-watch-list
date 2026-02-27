@@ -56,3 +56,18 @@
   font-size: .8rem;
   margin-top: .25rem;
 }
+
+.form-control::file-selector-button {
+  background-color: $bg-elevated;
+  color: $text-primary;
+  border: 1px solid $border-strong;
+  border-radius: .375rem;
+  padding: .375rem .75rem;
+  margin-right: .75rem;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $bg-elevated;
+  }
+}

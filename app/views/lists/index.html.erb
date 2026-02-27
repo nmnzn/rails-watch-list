@@ -6,6 +6,12 @@
 <div class="lists-grid">
   <% @lists.each do |list| %>
     <div class="list-card">
+      <% if list.photo.attached? %>
+        <%= image_tag list.photo, width: 50, height: 50, crop: :fill, class: "list-card-img" %>
+      <% else %>
+        <%= image_tag("ticket", width: 50, height: 50, crop: :fill) %>
+      <% end %>
+
       <%= link_to list.name, list_path(list), class: "list-card-title" %>
       <div class="list-card-actions">
         <%= link_to "Supprimer", list_path(list),
