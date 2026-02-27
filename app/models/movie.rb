@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
 has_many :bookmarks, dependent: :destroy
-validates_presence_of :name
+validates_presence_of :title
 end
